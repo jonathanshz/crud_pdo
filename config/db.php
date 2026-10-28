@@ -1,6 +1,6 @@
 <?php
 //Cargar la configuracion
-$config = require __DIR__ . "/config.php";
+$config = require __DIR__ . "/../config/config.php";
 
 $host = $config["DB_HOST"];
 $dbname = $config["DB_NAME"];
@@ -19,7 +19,7 @@ $options = [
 try {
     //Motor + Host + Nombre de DB + charset
     //Data Source Name
-    $dsn = "mysql:host = $host; dbname = $dbname; charset = $charset";
+    $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
     die("Error de conexion: " . $e->getMessage());
